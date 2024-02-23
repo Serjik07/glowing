@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block title %}Add Card{% endblock %}
+{% block form %}
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    {{ form.title }}
+    <label for="price">Price:</label>
+    {{ form.price }}
+    <label for="description">Description:</label>
+    {{ form.description }}
+    <label for="img_url">Img_url:</label>
+    {{ form.img_url }}
+    <!-- {% block button %}Update{% endblock %} -->
+{% endblock %}

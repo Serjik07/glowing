@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing - Reveal The Beauty of Skin</title>
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body id="top">
+
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header">
+
+        <div class="alert">
+            <div class="container">
+                <p class="alert-text">Free Shipping On All U.S. Orders $50+(for user: {{ user }})</p>
+            </div>
+        </div>
+
+        <div class="header-top" data-header>
+            <div class="container">
+
+                <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </button>
+
+                <div class="input-wrapper">
+                    <input type="search" name="search" placeholder="Search product" class="search-field">
+
+                    <button class="search-submit" aria-label="search">
+                        <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                    </button>
+                </div>
+
+                <a href="#" class="logo">
+                    <img src="{% static 'main/images/logo.png' %}" width="179" height="26" alt="Glowing">
+                </a>
+
+                <div class="header-actions">
+                    <a href="{% url 'logout' %}">Logout</a>
+                    <button class="header-action-btn" aria-label="user">
+                        <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+                    </button>
+
+
+                </div>
+
+                <nav class="navbar">
+                    <ul class="navbar-list">
+
+                        <li>
+                            <a href="{% url 'home' %}#home" class="navbar-link has-after">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'home' %}#collection" class="navbar-link has-after">Collection</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'home' %}#shop" class="navbar-link has-after">Shop</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'home' %}#offer" class="navbar-link has-after">Offer</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'home' %}#blog" class="navbar-link has-after">Blog</a>
+                        </li>
+
+                    </ul>
+                </nav>
+                
+            </div>
+        </div>
+
+    </header>
+    <section class="section shop active" id="shop" aria-label="shop" data-section="">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Your Likes</h2>
+          </div>
+          
+          <ul class="has-scrollbar">
+            {% for card in cards%}
+            {% for like in user_likes%}
+            {% if card.id == like.card_id%}
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="{{card.img_url}}" width="540" height="720" loading="lazy"
+                    alt="Facial cleanser" class="img-cover">
+
+                  
+
+                  <div class="card-actions">
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">${{card.price}}</span>
+                  </div>
+
+                  <h3>
+                    <p class="card-p">{{card.title}}</p>
+                    <p class="card-p">Author: {{card.author}}</p>
+                    <p class="card-p">Contact: {{card.author.email}}</p>
+                  </h3>
+                  <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="card_id" value="{{card.id}}">Delete</button>
+                  </form>
+
+                </div>
+
+              </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            
+
+          </ul>
+
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="{% static 'main/js/script.js' %}" defer></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>

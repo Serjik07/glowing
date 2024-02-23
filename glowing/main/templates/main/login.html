@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% block title %}Login{% endblock %}
+{% block form %}
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username">
+    <label for="username">Password:</label>
+    <input type="password" name="password" id="password">
+    <a href="{% url 'signUp' %}">Sign Up</a>
+    <!-- {% block button %}Login{% endblock %} -->
+{% endblock %}

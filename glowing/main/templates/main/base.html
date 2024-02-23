@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        body {
+            height: 100vh;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .register {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            gap: 2px;
+        }
+
+        .register > input {
+            background-color: hsl(0, 0%, 100%);
+            font-size: 1.1rem;
+            padding: 7px 5px;
+            padding-inline-end: 145px;
+            border: 1px solid hsl(148, 20%, 38%);
+            border-radius: 3px;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        .register > input::placeholder {
+            color: hsl(0, 0%, 61%);
+        }
+
+        .register > input:focus {
+            border-color: hsl(0, 0%, 0%);
+        }
+        .register > button {
+            width: 150px;
+            padding: 10px 5px;
+            background-color: hsl(0, 0%, 0%);
+            color: hsl(0, 0%, 100%);
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        .register > button:hover {
+            background-color: hsl(148, 20%, 38%);
+        }
+
+        #form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="form">
+        <form method="post" class="register">
+            {% block form %}{% endblock %}
+            <button type="submit">{% block button %}{% endblock %}</button>
+        </form>
+    </div>
+</body>
+
+</html>

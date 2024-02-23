@@ -1,0 +1,7 @@
+{% extends 'main/base.html' %}
+{% block title %}Add Card{% endblock %}
+{% block form %}
+    {% csrf_token %}
+    {{form}}
+    <!-- {% block button %}Login{% endblock %} -->
+{% endblock %}
