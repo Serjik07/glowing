@@ -233,7 +233,7 @@ body {
 }
 
 .scrollbar-item {
-  min-width: 100%;
+  /* min-width: 100%; */
   scroll-snap-align: start;
 }
 
@@ -382,7 +382,7 @@ body {
 
 .header-top.active {
   position: fixed;
-  top: -80px;
+  top: -95px;
   bottom: auto;
   box-shadow: var(--shadow-1);
   transform: translateY(100%);
@@ -1024,7 +1024,6 @@ body {
   transition: 0.4s var(--cubic-out);
 }
 
-
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
@@ -1088,7 +1087,7 @@ body {
   .offer .countdown { --fs-2: 4.8rem; }
 
   .offer .countdown .time:not(:last-child)::after { margin-inline: 20px; }
-
+  
 }
 
 
@@ -1275,7 +1274,7 @@ body {
   /**
    * REUSED STYLE
    */
-
+  
   .container { max-width: 1300px; }
 
   .scrollbar-item { min-width: calc(20% - 24px); }
@@ -1344,7 +1343,7 @@ body {
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
   }
 
   .header-action-btn { position: relative; }
@@ -1362,7 +1361,7 @@ body {
     border-radius: 20px;
   }
 
-  .header-action-btn:last-child {
+  .header-action-btn {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1413,7 +1412,7 @@ body {
 
   .header-top.active .navbar {
     position: fixed;
-    top: -80px;
+    top: -95px;
     bottom: auto;
     padding-block: 28px;
     box-shadow: var(--shadow-1);

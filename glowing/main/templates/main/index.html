@@ -362,9 +362,9 @@
               <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
             </a>
           </div>
-          <div id="add"><a href="{% url 'addCard' %}">Add Product</a></div>
           <ul class="has-scrollbar">
             {% for card in cards%}
+            
             <li class="scrollbar-item">
               <div class="shop-card">
 
@@ -399,19 +399,10 @@
 
                   <h3>
                     <p class="card-p">{{card.title}}</p>
-                    <p class="card-p">Author: {{card.author}}</p>
-                    <p class="card-p">Contact: {{card.author.email}}</p>
+                    <p>{{card.id}}</p>
+                    <p style="font-size: 13px; color: black;">{{card.description}}</p>
                   </h3>
-                  {% if card.author.id == user.id %}
-                  <form method="post">
-                    <button><a id="update" href="{{ card.id }}/update">Update</a></button>
-                  </form>
-                  <form method="post">
-                    {% csrf_token %}
-                    <button type="submit" name="card_id" value="{{ card.id }}">Delete</button>
-                  </form>
                   
-                  {% endif %}
 
                 </div>
 
@@ -679,7 +670,7 @@
     </article>
   </main>
 
-
+  
 
 
 
@@ -705,7 +696,7 @@
           </li>
 
           <li>
-            <p class="footer-list-text bold">+391 (0)35 2568 4593</p>
+            <p class="footer-list-text bold">+394 (0)44 44 44 44</p>
           </li>
 
           <li>
@@ -774,13 +765,6 @@
             Enter your email below to be the first to know about new collections and product launches.
           </p>
 
-          <form action="" class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Enter your email address" required
-              class="email-field">
-
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
-
         </div>
 
       </div>
@@ -789,7 +773,7 @@
 
         <div class="wrapper">
           <p class="copyright">
-            &copy; 2023 by Serjo Harutyuyan
+            &copy; 2024 by Serjo Harutyuyan
           </p>
 
           <ul class="social-list">
