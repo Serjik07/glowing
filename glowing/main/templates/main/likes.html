@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowing - Reveal The Beauty of Skin</title>
+    <title>Glamorize cosmetics</title>
 
     <!-- 
     - favicon
@@ -35,74 +35,97 @@
     - #HEADER
   -->
 
-    <header class="header">
+  <header class="header">
 
-        <div class="alert">
-            <div class="container">
-                <p class="alert-text">Free Shipping On All U.S. Orders $50+(for user: {{ user }})</p>
-            </div>
+    <div class="alert">
+      <div class="container">
+        <p class="alert-text">Free Shipping On All U.S. Orders $50+(for user: {{ user }})</p>
+      </div>
+    </div>
+
+    <div class="header-top" data-header>
+      <div class="container">
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <div class="input-wrapper">
+          <input type="search" name="search" placeholder="Search product" class="search-field">
+
+          <button class="search-submit" aria-label="search">
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          </button>
         </div>
 
-        <div class="header-top" data-header>
-            <div class="container">
+        <a href="#" class="logo">
+          <b>GLAMORIZE</b>
+        </a>
 
-                <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-                    <span class="line line-1"></span>
-                    <span class="line line-2"></span>
-                    <span class="line line-3"></span>
-                </button>
+        <div class="header-actions">
+          <a href="{% url 'logout' %}" class="logOut">Logout</a>
+          <!-- jnjaca buttoni header-action-btn class@ -->
 
-                <div class="input-wrapper">
-                    <input type="search" name="search" placeholder="Search product" class="search-field">
-
-                    <button class="search-submit" aria-label="search">
-                        <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-                    </button>
-                </div>
-
-                <a href="#" class="logo">
-                    <img src="{% static 'main/images/logo.png' %}" width="179" height="26" alt="Glowing">
-                </a>
-
-                <div class="header-actions">
-                    <a href="{% url 'logout' %}">Logout</a>
-                    <button class="header-action-btn" aria-label="user">
-                        <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
-                    </button>
+          <button id="profile_btn" class="" aria-label="user">
+            <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+          </button>
 
 
-                </div>
-
-                <nav class="navbar">
-                    <ul class="navbar-list">
-
-                        <li>
-                            <a href="{% url 'home' %}#home" class="navbar-link has-after">Home</a>
-                        </li>
-
-                        <li>
-                            <a href="{% url 'home' %}#collection" class="navbar-link has-after">Collection</a>
-                        </li>
-
-                        <li>
-                            <a href="{% url 'home' %}#shop" class="navbar-link has-after">Shop</a>
-                        </li>
-
-                        <li>
-                            <a href="{% url 'home' %}#offer" class="navbar-link has-after">Offer</a>
-                        </li>
-
-                        <li>
-                            <a href="{% url 'home' %}#blog" class="navbar-link has-after">Blog</a>
-                        </li>
-
-                    </ul>
-                </nav>
-                
-            </div>
         </div>
 
-    </header>
+        <nav class="navbar">
+          <ul class="navbar-list">
+
+            <li>
+              <a href="#home" class="navbar-link has-after">Home</a>
+            </li>
+
+            <li>
+              <a href="#collection" class="navbar-link has-after">Collection</a>
+            </li>
+
+            <li>
+              <a href="#shop" class="navbar-link has-after">Shop</a>
+            </li>
+
+            <li>
+              <a href="#offer" class="navbar-link has-after">Offer</a>
+            </li>
+
+            <li>
+              <a href="#blog" class="navbar-link has-after">Blog</a>
+            </li>
+            
+            <li>
+              <a href="{% url 'likes' %}" class="navbar-link has-after">Likes</a>
+            </li>
+
+
+          </ul>
+        </nav>
+        <div class="profile">
+          <div class="profile_up">
+            <div class="wrapper">
+              <a href="#" class="logo">
+                <img src="/static/main/images/mlogo.png" width="179" height="26" alt="Glowing">
+              </a>
+      
+              <button class="nav-close-btn" id="profile_close">
+                <ion-icon name="close-outline" aria-hidden="true" role="img" class="md hydrated"></ion-icon>
+              </button>
+            </div>   
+          </div>  
+          <div class="profile_bottom">
+            <p><b>User: </b><i> {{ user }}</i></p><br>
+            <p><b>Email: </b><i> {{ user.email }}</i></p>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
     <section class="section shop active" id="shop" aria-label="shop" data-section="">
         <div class="container">
 
